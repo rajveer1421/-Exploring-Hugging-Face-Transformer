@@ -1,37 +1,48 @@
 # 🌟 Exploring Hugging Face Transformers 🚀
 
-This repository is my **first hands-on exploration** of Hugging Face’s **Transformers library** and its **tokenizers**.  
-The goal is to get familiar with how modern NLP models work, try out a few popular architectures, and understand how easily Hugging Face lets us switch between tasks like **text generation, sentiment analysis, and translation/summarization**.  
+This repository marks my **first hands-on exploration** of Hugging Face’s **Transformers library** and its **tokenizers**. The goal is to understand modern NLP workflows, experiment with popular architectures, and leverage high-level APIs to switch between tasks like generation, classification, and translation.
 
 ---
 
 ## 📂 Contents
-- `Exploring Generative AI Libraries-v2.ipynb` → Main Jupyter Notebook with all the experiments and outputs.  
-- `README.md` → This documentation.  
+- `Exploring Generative AI Libraries-v2.ipynb`: Main Jupyter Notebook containing all experiments, code, and model outputs.
+- `README.md`: Project documentation and overview.
+
+---
+
+## ⚡ Key Feature: The Pipeline API
+The core of this exploration focuses on the **Pipeline API**. It abstracts the complexity of the NLP pipeline, allowing for efficient model loading and inference. By using `pipeline()`, the following steps are handled automatically:
+1. **Tokenization:** Converting raw text into input IDs.
+2. **Model Inference:** Passing inputs through the neural network.
+3. **Post-processing:** Converting logits/tensors back into human-readable text.
 
 ---
 
 ## 🤖 Models Explored
-I experimented with **three diverse Hugging Face models**:
+I experimented with four diverse models to cover a broad range of NLP tasks:
 
-1. **GPT-2 (`gpt2`)** → Text Generation  
-   - Generates coherent and creative text.  
-   - Example: Story continuation, creative writing, idea generation.  
+### 1. GPT-2 (`gpt2`) — Text Generation
+* **Task:** Predicting the next word in a sequence to generate creative text.
+* **Usage:** Leveraged for story continuation and idea generation.
 
-2. **DistilBERT (`distilbert-base-uncased-finetuned-sst-2-english`)** → Sentiment Analysis  
-   - A lightweight and fast version of BERT.  
-   - Example: Detect if a sentence is **Positive** or **Negative**.  
+### 2. DistilBERT — Sentiment Analysis
+* **Model:** `distilbert-base-uncased-finetuned-sst-2-english`
+* **Task:** Binary classification to detect if a sentence is **Positive** or **Negative**.
+* **Why:** A distilled, lightweight version of BERT that offers high performance with lower latency.
 
-3. **T5-small (`t5-small`)** → Translation & Summarization  
-   - A sequence-to-sequence model.  
-   - Example: Translate between languages or summarize long text.  
+### 3. BERT (`bert-base-uncased`) — Fill-Mask
+* **Task:** Predicting "masked" (hidden) words within a sentence.
+* **Insight:** This was used to explore how bi-directional context helps models understand the relationship between words in a sentence.
 
-👉 Together, these models cover **generation**, **classification**, and **seq2seq** tasks, giving a broad taste of Hugging Face’s ecosystem.  
+### 4. T5-small (`t5-small`) — Translation & Summarization
+* **Task:** A **Sequence-to-Sequence (Seq2Seq)** approach that treats every NLP task as a "text-to-text" problem.
+* **Usage:** Used for translating English to French and generating concise summaries of longer paragraphs.
 
 ---
 
-## ⚡ Quick Start
-### 🔧 Installation
-You only need two libraries:  
+## 🔧 Installation & Setup
+
+To run the experiments locally, install the required libraries:
+
 ```bash
 pip install transformers torch
